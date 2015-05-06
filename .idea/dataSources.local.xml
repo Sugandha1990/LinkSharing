@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="LinkSharingApplication dev" uuid="1f9eebcb-95eb-4e42-893b-cfd7fcb734e9">
+      <user-name>root</user-name>
+      <user-password>dfd9dfdfdfcddfdfdf9bdf98df99df9e</user-password>
+      <schema-pattern>ln_db.*</schema-pattern>
+      <default-schemas>ln_db.*</default-schemas>
+    </data-source>
+  </component>
+</project>

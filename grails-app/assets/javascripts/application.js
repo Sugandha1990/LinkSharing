@@ -6,7 +6,13 @@
 // to create separate JavaScript files as needed.
 //
 //= require jquery
-//= require_tree .
+//= require jquery.validate
+//= require bootstrap
+//= require jquery.raty
+//= require bootstrap-hover-dropdown.min
+//= require bootstrap-dialog
+//= require customScript
+//= require linkSharing
 //= require_self
 
 if (typeof jQuery !== 'undefined') {

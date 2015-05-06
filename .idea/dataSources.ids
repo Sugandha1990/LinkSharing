@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="LinkSharingApplication dev" uuid="1f9eebcb-95eb-4e42-893b-cfd7fcb734e9">
+    <database-info product="MySQL" version="5.5.41-0ubuntu0.14.04.1" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.29 ( Revision: alexander.soklakov@oracle.com-20140120140810-s44574olh90i6i4l )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact"/>
+    <schema name="" catalog="ln_db"/>
+    <table name="async_mail_attachment" schema="" catalog="ln_db" type="TABLE">
+      <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="attachment_name" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="content" sqlType="LONGBLOB" precision="2147483647" scale="0" nullable="false" jdbcType="-4"/>
+      <column name="inline" sqlType="BIT" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+      <column name="message_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="mime_type" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="attachments_idx" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="FK_gxoa1ld7rnmu0kexyvr2wje56" columns="message_id" ref-table="async_mail_mess" ref-schema="" ref-catalog="ln_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="FK_gxoa1ld7rnmu0kexyvr2wje56" unique="false" columns="message_id"/>
+    </table>
+    <table name="async_mail_bcc" schema="" catalog="ln_db" type="TABLE">
+      <column name="message_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="bcc_string" sqlType="VARCHAR" precision="256" scale="0" nullable="true" jdbcType="12"/>
+      <column name="bcc_idx" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+    </table>
+    <table name="async_mail_cc" schema="" catalog="ln_db" type="TABLE">
+      <column name="message_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="cc_string" sqlType="VARCHAR" precision="256" scale="0" nullable="true" jdbcType="12"/>
+      <column name="cc_idx" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+    </table>
+    <table name="async_mail_header" schema="" catalog="ln_db" type="TABLE">
+      <column name="message_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="header_name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="header_value" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+    </table>
+    <table name="async_mail_mess" schema="" catalog="ln_db" type="TABLE">
+      <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="version" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="attempt_interval" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="attempts_count" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="begin_date" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="create_date" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="end_date" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="envelope_from" sqlType="VARCHAR" precision="256" scale="0" nullable="true" jdbcType="12"/>
+      <column name="from_column" sqlType="VARCHAR" precision="256" scale="0" nullable="true" jdbcType="12"/>
+      <column name="html" sqlType="BIT" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+      <column name="last_attempt_date" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="mark_delete" sqlType="BIT" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+      <column name="max_attempts_count" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="priority" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="reply_to" sqlType="VARCHAR" precision="256" scale="0" nullable="true" jdbcType="12"/>
+      <column name="sent_date" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="status" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="subject" sqlType="VARCHAR" precision="988" scale="0" nullable="false" jdbcType="12"/>
+      <column name="text" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="false" jdbcType="-1"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="FK_gxoa1ld7rnmu0kexyvr2wje56" table="async_mail_attachment" schema="" catalog="ln_db" columns="message_id"/>
+    </table>
+    <table name="async_mail_to" schema="" catalog="ln_db" type="TABLE">
+      <column name="message_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="to_string" sqlType="VARCHAR" precision="256" scale="0" nullable="true" jdbcType="12"/>
+      <column name="to_idx" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+    </table>
+    <table name="document_resource" schema="" catalog="ln_db" type="TABLE">
+      <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="file_path" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="file_type" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="FK_go47wukpb38lu7fafc0obw6ht" columns="id" ref-table="resource" ref-schema="" ref-catalog="ln_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="invitation" schema="" catalog="ln_db" type="TABLE">
+      <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="version" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="date_created" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="receiver_email" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="sender_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="token" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="FK_burrr4gd9m1klq88rqu6c7iat" columns="sender_id" ref-table="user" ref-schema="" ref-catalog="ln_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="FK_burrr4gd9m1klq88rqu6c7iat" unique="false" columns="sender_id"/>
+    </table>
+    <table name="link_resource" schema="" catalog="ln_db" type="TABLE">
+      <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="url" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="FK_51n80mfleraggcf190ngcme1g" columns="id" ref-table="resource" ref-schema="" ref-catalog="ln_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="read_resources" schema="" catalog="ln_db" type="TABLE">
+      <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="version" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="read_flg" sqlType="BIT" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+      <column name="resource_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="user_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="read_resources_idx" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="FK_fb2c5p78spqrdqwv1nf2ut21n" columns="user_id" ref-table="user" ref-schema="" ref-catalog="ln_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK_sc26ca1y96w0a38gvl6vo4fgi" columns="resource_id" ref-table="resource" ref-schema="" ref-catalog="ln_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="FK_fb2c5p78spqrdqwv1nf2ut21n" unique="false" columns="user_id"/>
+      <index name="FK_sc26ca1y96w0a38gvl6vo4fgi" unique="false" columns="resource_id"/>
+    </table>
+    <table name="resource" schema="" catalog="ln_db" type="TABLE">
+      <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="version" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="created_by_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="date_created" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="description" sqlType="VARCHAR" precision="1024" scale="0" nullable="false" jdbcType="12"/>
+      <column name="last_updated" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="title" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="topic_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="FK_29on5nwfvvdmtimh40b7tnsw5" columns="topic_id" ref-table="topic" ref-schema="" ref-catalog="ln_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK_g246684ev6hmr47bn9x3jv37f" columns="created_by_id" ref-table="user" ref-schema="" ref-catalog="ln_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="FK_go47wukpb38lu7fafc0obw6ht" table="document_resource" schema="" catalog="ln_db" columns="id"/>
+      <exported-key name="FK_51n80mfleraggcf190ngcme1g" table="link_resource" schema="" catalog="ln_db" columns="id"/>
+      <exported-key name="FK_sc26ca1y96w0a38gvl6vo4fgi" table="read_resources" schema="" catalog="ln_db" columns="resource_id"/>
+      <exported-key name="FK_hmnf6fb69j5w3nttui4g372w9" table="resource_rating" schema="" catalog="ln_db" columns="resource_id"/>
+      <index name="unique_topic_id" unique="true" columns="title,topic_id"/>
+      <index name="FK_29on5nwfvvdmtimh40b7tnsw5" unique="false" columns="topic_id"/>
+      <index name="FK_g246684ev6hmr47bn9x3jv37f" unique="false" columns="created_by_id"/>
+    </table>
+    <table name="resource_rating" schema="" catalog="ln_db" type="TABLE">
+      <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="version" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="resource_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="score" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="user_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="FK_hmnf6fb69j5w3nttui4g372w9" columns="resource_id" ref-table="resource" ref-schema="" ref-catalog="ln_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK_qae5oa07q1791tfyocrc7w995" columns="user_id" ref-table="user" ref-schema="" ref-catalog="ln_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="FK_hmnf6fb69j5w3nttui4g372w9" unique="false" columns="resource_id"/>
+      <index name="FK_qae5oa07q1791tfyocrc7w995" unique="false" columns="user_id"/>
+    </table>
+    <table name="subscription" schema="" catalog="ln_db" type="TABLE">
+      <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="version" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="date_created" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="seriousness" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="topic_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="user_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="FK_aojatoh2ykivd0ukh09f4mn11" columns="topic_id" ref-table="topic" ref-schema="" ref-catalog="ln_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK_tq3cq3gmsss8jjyb2l5sb1o6k" columns="user_id" ref-table="user" ref-schema="" ref-catalog="ln_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="unique_topic_id" unique="true" columns="user_id,topic_id"/>
+      <index name="FK_aojatoh2ykivd0ukh09f4mn11" unique="false" columns="topic_id"/>
+    </table>
+    <table name="topic" schema="" catalog="ln_db" type="TABLE">
+      <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="version" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="created_by_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="date_created" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="last_updated" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="name" sqlType="VARCHAR" precision="15" scale="0" nullable="false" jdbcType="12"/>
+      <column name="visibility" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="FK_gjh72tiq1cjg5r46kkx5jkghh" columns="created_by_id" ref-table="user" ref-schema="" ref-catalog="ln_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="FK_29on5nwfvvdmtimh40b7tnsw5" table="resource" schema="" catalog="ln_db" columns="topic_id"/>
+      <exported-key name="FK_aojatoh2ykivd0ukh09f4mn11" table="subscription" schema="" catalog="ln_db" columns="topic_id"/>
+      <index name="unique_name" unique="true" columns="created_by_id,name"/>
+    </table>
+    <table name="user" schema="" catalog="ln_db" type="TABLE">
+      <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="version" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="active" sqlType="BIT" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+      <column name="admin" sqlType="BIT" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+      <column name="date_created" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="email" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="first_name" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="last_name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="last_updated" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="password" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="photo" sqlType="MEDIUMBLOB" precision="16777215" scale="0" nullable="true" jdbcType="-4"/>
+      <column name="username" sqlType="VARCHAR" precision="15" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="FK_burrr4gd9m1klq88rqu6c7iat" table="invitation" schema="" catalog="ln_db" columns="sender_id"/>
+      <exported-key name="FK_fb2c5p78spqrdqwv1nf2ut21n" table="read_resources" schema="" catalog="ln_db" columns="user_id"/>
+      <exported-key name="FK_g246684ev6hmr47bn9x3jv37f" table="resource" schema="" catalog="ln_db" columns="created_by_id"/>
+      <exported-key name="FK_qae5oa07q1791tfyocrc7w995" table="resource_rating" schema="" catalog="ln_db" columns="user_id"/>
+      <exported-key name="FK_tq3cq3gmsss8jjyb2l5sb1o6k" table="subscription" schema="" catalog="ln_db" columns="user_id"/>
+      <exported-key name="FK_gjh72tiq1cjg5r46kkx5jkghh" table="topic" schema="" catalog="ln_db" columns="created_by_id"/>
+      <index name="UK_ob8kqyqqgmefl0aco34akdtpe" unique="true" columns="email"/>
+      <index name="UK_sb8bbouer5wak8vyiiy4pf2bx" unique="true" columns="username"/>
+    </table>
+  </data-source>
+</component>
